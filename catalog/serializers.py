@@ -7,8 +7,8 @@ class PaqueteSerializer(serializers.ModelSerializer):
         fields = ["id", "codigo_rastreo", "destinatario", "peso_kg", "tipo", "estado"]
 
 class RutaSerializer(serializers.ModelSerializer):
-    paquetes_pendientes = PaqueteSerializer(many=True, read_only=False)
+    paquetes = PaqueteSerializer(many=True, read_only=True)
 
     class Meta:
         model = Ruta
-        fields = ["id", "codigo", "paquetes_pendientes"]
+        fields = ["id", "codigo", "paquetes"]
